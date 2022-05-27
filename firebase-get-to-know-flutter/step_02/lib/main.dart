@@ -195,6 +195,7 @@ class ApplicationState extends ChangeNotifier {
         _guestBookSubscription = FirebaseFirestore.instance
             .collection('guestbook')
             .orderBy('timestamp', descending: true)
+            .limit(3)
             .snapshots()
             .listen((snapshot) {
           _guestBookMessages = [];
